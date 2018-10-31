@@ -41,6 +41,9 @@ project(GEOS VERSION 3.8.0 LANGUAGES C CXX
 
 unset(_project_url)
 
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
+include(geos-configure-file)
+
 # The version of JTS this release is bound to
 set(JTS_PORT "1.13.0")
 # Version info for the CAPI

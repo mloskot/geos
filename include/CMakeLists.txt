@@ -22,16 +22,6 @@ configure_file(
   ${CMAKE_CURRENT_LIST_DIR}/geos/platform.h.cmake
   ${CMAKE_CURRENT_BINARY_DIR}/geos/platform.h)
 
-set(VERSION ${GEOS_VERSION})
-set(VERSION_MAJOR ${GEOS_VERSION_MAJOR})
-set(VERSION_MINOR ${GEOS_VERSION_MINOR})
-set(VERSION_PATCH ${GEOS_VERSION_PATCH})
-
-configure_file(${CMAKE_CURRENT_LIST_DIR}/geos/version.h.in
+geos_configure_file(${CMAKE_CURRENT_LIST_DIR}/geos/version.h.in
   ${CMAKE_CURRENT_BINARY_DIR}/geos/version.h
   @ONLY)
-
-unset(VERSION)
-unset(VERSION_MAJOR)
-unset(VERSION_MINOR)
-unset(VERSION_PATCH)
