@@ -8,8 +8,7 @@
 # by the Free Software Foundation.
 # See the COPYING file for more information.
 ################################################################################
-cmake_minimum_required(VERSION 3.12)
-
+cmake_minimum_required(VERSION 3.5)
 
 # TODO: Follow CMake detection of git and version tagging
 #       https://gitlab.kitware.com/cmake/cmake/blob/master/Source/CMakeVersionSource.cmake
@@ -32,9 +31,15 @@ mark_as_advanced(GEOS_BUILD_DEVELOPER)
 
 ################################################################################
 # Project settings
+if(CMAKE_VERSION VERSION_GREATER_EQUAL 3.12)
+  set(_project_extras HOMEPAGE_URL;"http://geos.osgeo.org")
+endif()
+
 project(GEOS VERSION 3.8.0 LANGUAGES C CXX
-  HOMEPAGE_URL "http://geos.osgeo.org"
-  DESCRIPTION "GEOS - C++ port of the Java Topology Suite (JTS)")
+  DESCRIPTION "GEOS - C++ port of the Java Topology Suite (JTS)"
+  ${_project_extras})
+
+unset(_project_url)
 
 # The version of JTS this release is bound to
 set(JTS_PORT "1.13.0")
