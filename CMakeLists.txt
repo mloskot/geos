@@ -148,6 +148,7 @@ endif()
 include(CTest)
 if(BUILD_TESTING)
   add_subdirectory(tests)
+  add_custom_target(check COMMAND ctest)
 endif()
 
 #-----------------------------------------------------------------------------
